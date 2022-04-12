@@ -96,12 +96,25 @@ namespace Server
 
         /// <summary>
         /// counts the number of letters in the string.
+        /// where letter is [a-z,A-Z]
         /// </summary>
         /// <param name="i_Text"></param>
         /// <returns></returns>
         public int LetterCount(string i_Text)
         {
-            return i_Text.Count(char.IsLetter);
+
+            int numOfLetters = 0;
+            foreach(char letter in i_Text)
+            {
+                int currentLetter = letter;
+                // ascii table numeric value of letters
+                if((currentLetter > 96 && currentLetter < 123) || (currentLetter > 64 && currentLetter < 91))
+                {
+                    numOfLetters++;
+                }
+            }
+
+            return numOfLetters;
         }
 
         /// <summary>
